@@ -1,0 +1,593 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    APOSTROPHE
+    BREAK
+    CASE
+    CLASS
+    COLON
+    COMMENTS
+    COMMENTS_C99
+    CONST
+    DISTINT
+    DO
+    DOT
+    ELSE
+    FALSE
+    FOR
+    IDVAR
+    IF
+    LBLOCK
+    LBRACKET
+    MAIN
+    MINUSEQUAL
+    MINUSMINUS
+    PLUSEQUAL
+    PLUSPLUS
+    PRINT
+    QUOTES
+    RBLOCK
+    RBRACKET
+    RETURN
+    SEMI
+    STATIC
+    STRING
+    SWITCH
+    TRUE
+    VAR
+    VOID
+    WHILE
+
+Grammar
+
+Rule 0     S' -> condition
+Rule 1     condition -> expression
+Rule 2     condition -> expression relation expression
+Rule 3     relation -> EQUAL
+Rule 4     relation -> ISEQUAL
+Rule 5     relation -> DEQUAL
+Rule 6     relation -> LESS
+Rule 7     relation -> GREATER
+Rule 8     relation -> LESSEQUAL
+Rule 9     relation -> GREATEREQUAL
+Rule 10    expression -> term
+Rule 11    expression -> addingOperator term
+Rule 12    expression -> expression addingOperator term
+Rule 13    addingOperator -> PLUS
+Rule 14    addingOperator -> MINUS
+Rule 15    term -> factor
+Rule 16    term -> term multiplyingOperator factor
+Rule 17    multiplyingOperator -> TIMES
+Rule 18    multiplyingOperator -> DIVIDE
+Rule 19    factor -> ID
+Rule 20    factor -> NUM
+Rule 21    factor -> LPAREN expression RPAREN
+
+Terminals, with rules where they appear
+
+APOSTROPHE           : 
+BREAK                : 
+CASE                 : 
+CLASS                : 
+COLON                : 
+COMMENTS             : 
+COMMENTS_C99         : 
+CONST                : 
+DEQUAL               : 5
+DISTINT              : 
+DIVIDE               : 18
+DO                   : 
+DOT                  : 
+ELSE                 : 
+EQUAL                : 3
+FALSE                : 
+FOR                  : 
+GREATER              : 7
+GREATEREQUAL         : 9
+ID                   : 19
+IDVAR                : 
+IF                   : 
+ISEQUAL              : 4
+LBLOCK               : 
+LBRACKET             : 
+LESS                 : 6
+LESSEQUAL            : 8
+LPAREN               : 21
+MAIN                 : 
+MINUS                : 14
+MINUSEQUAL           : 
+MINUSMINUS           : 
+NUM                  : 20
+PLUS                 : 13
+PLUSEQUAL            : 
+PLUSPLUS             : 
+PRINT                : 
+QUOTES               : 
+RBLOCK               : 
+RBRACKET             : 
+RETURN               : 
+RPAREN               : 21
+SEMI                 : 
+STATIC               : 
+STRING               : 
+SWITCH               : 
+TIMES                : 17
+TRUE                 : 
+VAR                  : 
+VOID                 : 
+WHILE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+addingOperator       : 11 12
+condition            : 0
+expression           : 1 2 2 12 21
+factor               : 15 16
+multiplyingOperator  : 16
+relation             : 2
+term                 : 10 11 12 16
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . condition
+    (1) condition -> . expression
+    (2) condition -> . expression relation expression
+    (10) expression -> . term
+    (11) expression -> . addingOperator term
+    (12) expression -> . expression addingOperator term
+    (15) term -> . factor
+    (16) term -> . term multiplyingOperator factor
+    (13) addingOperator -> . PLUS
+    (14) addingOperator -> . MINUS
+    (19) factor -> . ID
+    (20) factor -> . NUM
+    (21) factor -> . LPAREN expression RPAREN
+
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+    ID              shift and go to state 8
+    NUM             shift and go to state 9
+    LPAREN          shift and go to state 10
+
+    condition                      shift and go to state 1
+    expression                     shift and go to state 2
+    term                           shift and go to state 3
+    addingOperator                 shift and go to state 4
+    factor                         shift and go to state 5
+
+state 1
+
+    (0) S' -> condition .
+
+
+
+state 2
+
+    (1) condition -> expression .
+    (2) condition -> expression . relation expression
+    (12) expression -> expression . addingOperator term
+    (3) relation -> . EQUAL
+    (4) relation -> . ISEQUAL
+    (5) relation -> . DEQUAL
+    (6) relation -> . LESS
+    (7) relation -> . GREATER
+    (8) relation -> . LESSEQUAL
+    (9) relation -> . GREATEREQUAL
+    (13) addingOperator -> . PLUS
+    (14) addingOperator -> . MINUS
+
+    $end            reduce using rule 1 (condition -> expression .)
+    EQUAL           shift and go to state 13
+    ISEQUAL         shift and go to state 14
+    DEQUAL          shift and go to state 15
+    LESS            shift and go to state 16
+    GREATER         shift and go to state 17
+    LESSEQUAL       shift and go to state 18
+    GREATEREQUAL    shift and go to state 19
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+
+    relation                       shift and go to state 11
+    addingOperator                 shift and go to state 12
+
+state 3
+
+    (10) expression -> term .
+    (16) term -> term . multiplyingOperator factor
+    (17) multiplyingOperator -> . TIMES
+    (18) multiplyingOperator -> . DIVIDE
+
+    EQUAL           reduce using rule 10 (expression -> term .)
+    ISEQUAL         reduce using rule 10 (expression -> term .)
+    DEQUAL          reduce using rule 10 (expression -> term .)
+    LESS            reduce using rule 10 (expression -> term .)
+    GREATER         reduce using rule 10 (expression -> term .)
+    LESSEQUAL       reduce using rule 10 (expression -> term .)
+    GREATEREQUAL    reduce using rule 10 (expression -> term .)
+    PLUS            reduce using rule 10 (expression -> term .)
+    MINUS           reduce using rule 10 (expression -> term .)
+    $end            reduce using rule 10 (expression -> term .)
+    RPAREN          reduce using rule 10 (expression -> term .)
+    TIMES           shift and go to state 21
+    DIVIDE          shift and go to state 22
+
+    multiplyingOperator            shift and go to state 20
+
+state 4
+
+    (11) expression -> addingOperator . term
+    (15) term -> . factor
+    (16) term -> . term multiplyingOperator factor
+    (19) factor -> . ID
+    (20) factor -> . NUM
+    (21) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 8
+    NUM             shift and go to state 9
+    LPAREN          shift and go to state 10
+
+    term                           shift and go to state 23
+    factor                         shift and go to state 5
+
+state 5
+
+    (15) term -> factor .
+
+    TIMES           reduce using rule 15 (term -> factor .)
+    DIVIDE          reduce using rule 15 (term -> factor .)
+    EQUAL           reduce using rule 15 (term -> factor .)
+    ISEQUAL         reduce using rule 15 (term -> factor .)
+    DEQUAL          reduce using rule 15 (term -> factor .)
+    LESS            reduce using rule 15 (term -> factor .)
+    GREATER         reduce using rule 15 (term -> factor .)
+    LESSEQUAL       reduce using rule 15 (term -> factor .)
+    GREATEREQUAL    reduce using rule 15 (term -> factor .)
+    PLUS            reduce using rule 15 (term -> factor .)
+    MINUS           reduce using rule 15 (term -> factor .)
+    $end            reduce using rule 15 (term -> factor .)
+    RPAREN          reduce using rule 15 (term -> factor .)
+
+
+state 6
+
+    (13) addingOperator -> PLUS .
+
+    ID              reduce using rule 13 (addingOperator -> PLUS .)
+    NUM             reduce using rule 13 (addingOperator -> PLUS .)
+    LPAREN          reduce using rule 13 (addingOperator -> PLUS .)
+
+
+state 7
+
+    (14) addingOperator -> MINUS .
+
+    ID              reduce using rule 14 (addingOperator -> MINUS .)
+    NUM             reduce using rule 14 (addingOperator -> MINUS .)
+    LPAREN          reduce using rule 14 (addingOperator -> MINUS .)
+
+
+state 8
+
+    (19) factor -> ID .
+
+    TIMES           reduce using rule 19 (factor -> ID .)
+    DIVIDE          reduce using rule 19 (factor -> ID .)
+    EQUAL           reduce using rule 19 (factor -> ID .)
+    ISEQUAL         reduce using rule 19 (factor -> ID .)
+    DEQUAL          reduce using rule 19 (factor -> ID .)
+    LESS            reduce using rule 19 (factor -> ID .)
+    GREATER         reduce using rule 19 (factor -> ID .)
+    LESSEQUAL       reduce using rule 19 (factor -> ID .)
+    GREATEREQUAL    reduce using rule 19 (factor -> ID .)
+    PLUS            reduce using rule 19 (factor -> ID .)
+    MINUS           reduce using rule 19 (factor -> ID .)
+    $end            reduce using rule 19 (factor -> ID .)
+    RPAREN          reduce using rule 19 (factor -> ID .)
+
+
+state 9
+
+    (20) factor -> NUM .
+
+    TIMES           reduce using rule 20 (factor -> NUM .)
+    DIVIDE          reduce using rule 20 (factor -> NUM .)
+    EQUAL           reduce using rule 20 (factor -> NUM .)
+    ISEQUAL         reduce using rule 20 (factor -> NUM .)
+    DEQUAL          reduce using rule 20 (factor -> NUM .)
+    LESS            reduce using rule 20 (factor -> NUM .)
+    GREATER         reduce using rule 20 (factor -> NUM .)
+    LESSEQUAL       reduce using rule 20 (factor -> NUM .)
+    GREATEREQUAL    reduce using rule 20 (factor -> NUM .)
+    PLUS            reduce using rule 20 (factor -> NUM .)
+    MINUS           reduce using rule 20 (factor -> NUM .)
+    $end            reduce using rule 20 (factor -> NUM .)
+    RPAREN          reduce using rule 20 (factor -> NUM .)
+
+
+state 10
+
+    (21) factor -> LPAREN . expression RPAREN
+    (10) expression -> . term
+    (11) expression -> . addingOperator term
+    (12) expression -> . expression addingOperator term
+    (15) term -> . factor
+    (16) term -> . term multiplyingOperator factor
+    (13) addingOperator -> . PLUS
+    (14) addingOperator -> . MINUS
+    (19) factor -> . ID
+    (20) factor -> . NUM
+    (21) factor -> . LPAREN expression RPAREN
+
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+    ID              shift and go to state 8
+    NUM             shift and go to state 9
+    LPAREN          shift and go to state 10
+
+    expression                     shift and go to state 24
+    term                           shift and go to state 3
+    addingOperator                 shift and go to state 4
+    factor                         shift and go to state 5
+
+state 11
+
+    (2) condition -> expression relation . expression
+    (10) expression -> . term
+    (11) expression -> . addingOperator term
+    (12) expression -> . expression addingOperator term
+    (15) term -> . factor
+    (16) term -> . term multiplyingOperator factor
+    (13) addingOperator -> . PLUS
+    (14) addingOperator -> . MINUS
+    (19) factor -> . ID
+    (20) factor -> . NUM
+    (21) factor -> . LPAREN expression RPAREN
+
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+    ID              shift and go to state 8
+    NUM             shift and go to state 9
+    LPAREN          shift and go to state 10
+
+    expression                     shift and go to state 25
+    term                           shift and go to state 3
+    addingOperator                 shift and go to state 4
+    factor                         shift and go to state 5
+
+state 12
+
+    (12) expression -> expression addingOperator . term
+    (15) term -> . factor
+    (16) term -> . term multiplyingOperator factor
+    (19) factor -> . ID
+    (20) factor -> . NUM
+    (21) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 8
+    NUM             shift and go to state 9
+    LPAREN          shift and go to state 10
+
+    term                           shift and go to state 26
+    factor                         shift and go to state 5
+
+state 13
+
+    (3) relation -> EQUAL .
+
+    PLUS            reduce using rule 3 (relation -> EQUAL .)
+    MINUS           reduce using rule 3 (relation -> EQUAL .)
+    ID              reduce using rule 3 (relation -> EQUAL .)
+    NUM             reduce using rule 3 (relation -> EQUAL .)
+    LPAREN          reduce using rule 3 (relation -> EQUAL .)
+
+
+state 14
+
+    (4) relation -> ISEQUAL .
+
+    PLUS            reduce using rule 4 (relation -> ISEQUAL .)
+    MINUS           reduce using rule 4 (relation -> ISEQUAL .)
+    ID              reduce using rule 4 (relation -> ISEQUAL .)
+    NUM             reduce using rule 4 (relation -> ISEQUAL .)
+    LPAREN          reduce using rule 4 (relation -> ISEQUAL .)
+
+
+state 15
+
+    (5) relation -> DEQUAL .
+
+    PLUS            reduce using rule 5 (relation -> DEQUAL .)
+    MINUS           reduce using rule 5 (relation -> DEQUAL .)
+    ID              reduce using rule 5 (relation -> DEQUAL .)
+    NUM             reduce using rule 5 (relation -> DEQUAL .)
+    LPAREN          reduce using rule 5 (relation -> DEQUAL .)
+
+
+state 16
+
+    (6) relation -> LESS .
+
+    PLUS            reduce using rule 6 (relation -> LESS .)
+    MINUS           reduce using rule 6 (relation -> LESS .)
+    ID              reduce using rule 6 (relation -> LESS .)
+    NUM             reduce using rule 6 (relation -> LESS .)
+    LPAREN          reduce using rule 6 (relation -> LESS .)
+
+
+state 17
+
+    (7) relation -> GREATER .
+
+    PLUS            reduce using rule 7 (relation -> GREATER .)
+    MINUS           reduce using rule 7 (relation -> GREATER .)
+    ID              reduce using rule 7 (relation -> GREATER .)
+    NUM             reduce using rule 7 (relation -> GREATER .)
+    LPAREN          reduce using rule 7 (relation -> GREATER .)
+
+
+state 18
+
+    (8) relation -> LESSEQUAL .
+
+    PLUS            reduce using rule 8 (relation -> LESSEQUAL .)
+    MINUS           reduce using rule 8 (relation -> LESSEQUAL .)
+    ID              reduce using rule 8 (relation -> LESSEQUAL .)
+    NUM             reduce using rule 8 (relation -> LESSEQUAL .)
+    LPAREN          reduce using rule 8 (relation -> LESSEQUAL .)
+
+
+state 19
+
+    (9) relation -> GREATEREQUAL .
+
+    PLUS            reduce using rule 9 (relation -> GREATEREQUAL .)
+    MINUS           reduce using rule 9 (relation -> GREATEREQUAL .)
+    ID              reduce using rule 9 (relation -> GREATEREQUAL .)
+    NUM             reduce using rule 9 (relation -> GREATEREQUAL .)
+    LPAREN          reduce using rule 9 (relation -> GREATEREQUAL .)
+
+
+state 20
+
+    (16) term -> term multiplyingOperator . factor
+    (19) factor -> . ID
+    (20) factor -> . NUM
+    (21) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 8
+    NUM             shift and go to state 9
+    LPAREN          shift and go to state 10
+
+    factor                         shift and go to state 27
+
+state 21
+
+    (17) multiplyingOperator -> TIMES .
+
+    ID              reduce using rule 17 (multiplyingOperator -> TIMES .)
+    NUM             reduce using rule 17 (multiplyingOperator -> TIMES .)
+    LPAREN          reduce using rule 17 (multiplyingOperator -> TIMES .)
+
+
+state 22
+
+    (18) multiplyingOperator -> DIVIDE .
+
+    ID              reduce using rule 18 (multiplyingOperator -> DIVIDE .)
+    NUM             reduce using rule 18 (multiplyingOperator -> DIVIDE .)
+    LPAREN          reduce using rule 18 (multiplyingOperator -> DIVIDE .)
+
+
+state 23
+
+    (11) expression -> addingOperator term .
+    (16) term -> term . multiplyingOperator factor
+    (17) multiplyingOperator -> . TIMES
+    (18) multiplyingOperator -> . DIVIDE
+
+    EQUAL           reduce using rule 11 (expression -> addingOperator term .)
+    ISEQUAL         reduce using rule 11 (expression -> addingOperator term .)
+    DEQUAL          reduce using rule 11 (expression -> addingOperator term .)
+    LESS            reduce using rule 11 (expression -> addingOperator term .)
+    GREATER         reduce using rule 11 (expression -> addingOperator term .)
+    LESSEQUAL       reduce using rule 11 (expression -> addingOperator term .)
+    GREATEREQUAL    reduce using rule 11 (expression -> addingOperator term .)
+    PLUS            reduce using rule 11 (expression -> addingOperator term .)
+    MINUS           reduce using rule 11 (expression -> addingOperator term .)
+    $end            reduce using rule 11 (expression -> addingOperator term .)
+    RPAREN          reduce using rule 11 (expression -> addingOperator term .)
+    TIMES           shift and go to state 21
+    DIVIDE          shift and go to state 22
+
+    multiplyingOperator            shift and go to state 20
+
+state 24
+
+    (21) factor -> LPAREN expression . RPAREN
+    (12) expression -> expression . addingOperator term
+    (13) addingOperator -> . PLUS
+    (14) addingOperator -> . MINUS
+
+    RPAREN          shift and go to state 28
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+
+    addingOperator                 shift and go to state 12
+
+state 25
+
+    (2) condition -> expression relation expression .
+    (12) expression -> expression . addingOperator term
+    (13) addingOperator -> . PLUS
+    (14) addingOperator -> . MINUS
+
+    $end            reduce using rule 2 (condition -> expression relation expression .)
+    PLUS            shift and go to state 6
+    MINUS           shift and go to state 7
+
+    addingOperator                 shift and go to state 12
+
+state 26
+
+    (12) expression -> expression addingOperator term .
+    (16) term -> term . multiplyingOperator factor
+    (17) multiplyingOperator -> . TIMES
+    (18) multiplyingOperator -> . DIVIDE
+
+    EQUAL           reduce using rule 12 (expression -> expression addingOperator term .)
+    ISEQUAL         reduce using rule 12 (expression -> expression addingOperator term .)
+    DEQUAL          reduce using rule 12 (expression -> expression addingOperator term .)
+    LESS            reduce using rule 12 (expression -> expression addingOperator term .)
+    GREATER         reduce using rule 12 (expression -> expression addingOperator term .)
+    LESSEQUAL       reduce using rule 12 (expression -> expression addingOperator term .)
+    GREATEREQUAL    reduce using rule 12 (expression -> expression addingOperator term .)
+    PLUS            reduce using rule 12 (expression -> expression addingOperator term .)
+    MINUS           reduce using rule 12 (expression -> expression addingOperator term .)
+    $end            reduce using rule 12 (expression -> expression addingOperator term .)
+    RPAREN          reduce using rule 12 (expression -> expression addingOperator term .)
+    TIMES           shift and go to state 21
+    DIVIDE          shift and go to state 22
+
+    multiplyingOperator            shift and go to state 20
+
+state 27
+
+    (16) term -> term multiplyingOperator factor .
+
+    TIMES           reduce using rule 16 (term -> term multiplyingOperator factor .)
+    DIVIDE          reduce using rule 16 (term -> term multiplyingOperator factor .)
+    EQUAL           reduce using rule 16 (term -> term multiplyingOperator factor .)
+    ISEQUAL         reduce using rule 16 (term -> term multiplyingOperator factor .)
+    DEQUAL          reduce using rule 16 (term -> term multiplyingOperator factor .)
+    LESS            reduce using rule 16 (term -> term multiplyingOperator factor .)
+    GREATER         reduce using rule 16 (term -> term multiplyingOperator factor .)
+    LESSEQUAL       reduce using rule 16 (term -> term multiplyingOperator factor .)
+    GREATEREQUAL    reduce using rule 16 (term -> term multiplyingOperator factor .)
+    PLUS            reduce using rule 16 (term -> term multiplyingOperator factor .)
+    MINUS           reduce using rule 16 (term -> term multiplyingOperator factor .)
+    $end            reduce using rule 16 (term -> term multiplyingOperator factor .)
+    RPAREN          reduce using rule 16 (term -> term multiplyingOperator factor .)
+
+
+state 28
+
+    (21) factor -> LPAREN expression RPAREN .
+
+    TIMES           reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    EQUAL           reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    ISEQUAL         reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    DEQUAL          reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    LESS            reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    GREATER         reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    LESSEQUAL       reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    GREATEREQUAL    reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    $end            reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 21 (factor -> LPAREN expression RPAREN .)
+
