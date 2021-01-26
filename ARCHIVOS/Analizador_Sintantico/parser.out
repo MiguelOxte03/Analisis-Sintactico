@@ -1,0 +1,2660 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    APOSTROPHE
+    BREAK
+    CASE
+    CLASS
+    COLON
+    COMMA
+    COMMENTS
+    COMMENTS_C99
+    CONST
+    DEQUAL
+    DISTINT
+    DO
+    DOT
+    FALSE
+    FOR
+    INT
+    LBRACKET
+    MAIN
+    MINUSEQUAL
+    MINUSMINUS
+    PLUSEQUAL
+    PLUSPLUS
+    PRINT
+    QUOTES
+    RBRACKET
+    RETURN
+    STATIC
+    STRING
+    SWITCH
+    TRUE
+    VOID
+    WHILE
+
+Grammar
+
+Rule 0     S' -> declaracion
+Rule 1     declaracion -> IF LPAREN expresion GREATER expresion RPAREN LBLOCK expresion SEMI RBLOCK
+Rule 2     declaracion -> ELSE LBLOCK expresion SEMI RBLOCK
+Rule 3     declaracion -> VAR expresion EQUAL expresion SEMI
+Rule 4     declaracion -> OPENTAG
+Rule 5     declaracion -> CLOSETAG
+Rule 6     declaracion -> expresion SEMI
+Rule 7     expresion -> expresion PLUS expresion
+Rule 8     expresion -> expresion MINUS expresion
+Rule 9     expresion -> expresion TIMES expresion
+Rule 10    expresion -> expresion DIVIDE expresion
+Rule 11    expresion -> expresion addop NUM
+Rule 12    expresion -> NUM addop expresion
+Rule 13    addop -> PLUS
+Rule 14    addop -> MINUS
+Rule 15    addop -> TIMES
+Rule 16    addop -> DIVIDE
+Rule 17    expresion -> MINUS expresion
+Rule 18    expresion -> LPAREN expresion RPAREN
+Rule 19    expresion -> LBLOCK expresion RBLOCK
+Rule 20    expresion -> expresion LESS expresion
+Rule 21    expresion -> expresion GREATER expresion
+Rule 22    expresion -> expresion LESSEQUAL expresion
+Rule 23    expresion -> expresion GREATEREQUAL expresion
+Rule 24    expresion -> expresion EQUAL expresion
+Rule 25    expresion -> expresion ISEQUAL expresion
+Rule 26    expresion -> LPAREN expresion LESS expresion RPAREN
+Rule 27    expresion -> LPAREN expresion GREATER expresion RPAREN
+Rule 28    expresion -> LPAREN expresion LESSEQUAL expresion RPAREN
+Rule 29    expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN
+Rule 30    expresion -> LPAREN expresion EQUAL expresion RPAREN
+Rule 31    expresion -> LPAREN expresion ISEQUAL expresion RPAREN
+Rule 32    expresion -> NUM
+Rule 33    expresion -> ID
+
+Terminals, with rules where they appear
+
+APOSTROPHE           : 
+BREAK                : 
+CASE                 : 
+CLASS                : 
+CLOSETAG             : 5
+COLON                : 
+COMMA                : 
+COMMENTS             : 
+COMMENTS_C99         : 
+CONST                : 
+DEQUAL               : 
+DISTINT              : 
+DIVIDE               : 10 16
+DO                   : 
+DOT                  : 
+ELSE                 : 2
+EQUAL                : 3 24 30
+FALSE                : 
+FOR                  : 
+GREATER              : 1 21 27
+GREATEREQUAL         : 23 29
+ID                   : 33
+IF                   : 1
+INT                  : 
+ISEQUAL              : 25 31
+LBLOCK               : 1 2 19
+LBRACKET             : 
+LESS                 : 20 26
+LESSEQUAL            : 22 28
+LPAREN               : 1 18 26 27 28 29 30 31
+MAIN                 : 
+MINUS                : 8 14 17
+MINUSEQUAL           : 
+MINUSMINUS           : 
+NUM                  : 11 12 32
+OPENTAG              : 4
+PLUS                 : 7 13
+PLUSEQUAL            : 
+PLUSPLUS             : 
+PRINT                : 
+QUOTES               : 
+RBLOCK               : 1 2 19
+RBRACKET             : 
+RETURN               : 
+RPAREN               : 1 18 26 27 28 29 30 31
+SEMI                 : 1 2 3 6
+STATIC               : 
+STRING               : 
+SWITCH               : 
+TIMES                : 9 15
+TRUE                 : 
+VAR                  : 3
+VOID                 : 
+WHILE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+addop                : 11 12
+declaracion          : 0
+expresion            : 1 1 1 2 3 3 6 7 7 8 8 9 9 10 10 11 12 17 18 19 20 20 21 21 22 22 23 23 24 24 25 25 26 26 27 27 28 28 29 29 30 30 31 31
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . declaracion
+    (1) declaracion -> . IF LPAREN expresion GREATER expresion RPAREN LBLOCK expresion SEMI RBLOCK
+    (2) declaracion -> . ELSE LBLOCK expresion SEMI RBLOCK
+    (3) declaracion -> . VAR expresion EQUAL expresion SEMI
+    (4) declaracion -> . OPENTAG
+    (5) declaracion -> . CLOSETAG
+    (6) declaracion -> . expresion SEMI
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    IF              shift and go to state 2
+    ELSE            shift and go to state 6
+    VAR             shift and go to state 7
+    OPENTAG         shift and go to state 8
+    CLOSETAG        shift and go to state 9
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    declaracion                    shift and go to state 1
+    expresion                      shift and go to state 4
+
+state 1
+
+    (0) S' -> declaracion .
+
+
+
+state 2
+
+    (1) declaracion -> IF . LPAREN expresion GREATER expresion RPAREN LBLOCK expresion SEMI RBLOCK
+
+    LPAREN          shift and go to state 13
+
+
+state 3
+
+    (18) expresion -> LPAREN . expresion RPAREN
+    (26) expresion -> LPAREN . expresion LESS expresion RPAREN
+    (27) expresion -> LPAREN . expresion GREATER expresion RPAREN
+    (28) expresion -> LPAREN . expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> LPAREN . expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> LPAREN . expresion EQUAL expresion RPAREN
+    (31) expresion -> LPAREN . expresion ISEQUAL expresion RPAREN
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 14
+
+state 4
+
+    (6) declaracion -> expresion . SEMI
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            shift and go to state 15
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESS            shift and go to state 21
+    GREATER         shift and go to state 22
+    LESSEQUAL       shift and go to state 23
+    GREATEREQUAL    shift and go to state 24
+    EQUAL           shift and go to state 25
+    ISEQUAL         shift and go to state 26
+
+    addop                          shift and go to state 20
+
+state 5
+
+    (19) expresion -> LBLOCK . expresion RBLOCK
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 27
+
+state 6
+
+    (2) declaracion -> ELSE . LBLOCK expresion SEMI RBLOCK
+
+    LBLOCK          shift and go to state 28
+
+
+state 7
+
+    (3) declaracion -> VAR . expresion EQUAL expresion SEMI
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 29
+
+state 8
+
+    (4) declaracion -> OPENTAG .
+
+    $end            reduce using rule 4 (declaracion -> OPENTAG .)
+
+
+state 9
+
+    (5) declaracion -> CLOSETAG .
+
+    $end            reduce using rule 5 (declaracion -> CLOSETAG .)
+
+
+state 10
+
+    (17) expresion -> MINUS . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 30
+
+state 11
+
+    (12) expresion -> NUM . addop expresion
+    (32) expresion -> NUM .
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    SEMI            reduce using rule 32 (expresion -> NUM .)
+    LESS            reduce using rule 32 (expresion -> NUM .)
+    GREATER         reduce using rule 32 (expresion -> NUM .)
+    LESSEQUAL       reduce using rule 32 (expresion -> NUM .)
+    GREATEREQUAL    reduce using rule 32 (expresion -> NUM .)
+    EQUAL           reduce using rule 32 (expresion -> NUM .)
+    ISEQUAL         reduce using rule 32 (expresion -> NUM .)
+    RPAREN          reduce using rule 32 (expresion -> NUM .)
+    RBLOCK          reduce using rule 32 (expresion -> NUM .)
+    PLUS            shift and go to state 32
+    MINUS           shift and go to state 33
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 35
+
+  ! PLUS            [ reduce using rule 32 (expresion -> NUM .) ]
+  ! MINUS           [ reduce using rule 32 (expresion -> NUM .) ]
+  ! TIMES           [ reduce using rule 32 (expresion -> NUM .) ]
+  ! DIVIDE          [ reduce using rule 32 (expresion -> NUM .) ]
+
+    addop                          shift and go to state 31
+
+state 12
+
+    (33) expresion -> ID .
+
+    SEMI            reduce using rule 33 (expresion -> ID .)
+    PLUS            reduce using rule 33 (expresion -> ID .)
+    MINUS           reduce using rule 33 (expresion -> ID .)
+    TIMES           reduce using rule 33 (expresion -> ID .)
+    DIVIDE          reduce using rule 33 (expresion -> ID .)
+    LESS            reduce using rule 33 (expresion -> ID .)
+    GREATER         reduce using rule 33 (expresion -> ID .)
+    LESSEQUAL       reduce using rule 33 (expresion -> ID .)
+    GREATEREQUAL    reduce using rule 33 (expresion -> ID .)
+    EQUAL           reduce using rule 33 (expresion -> ID .)
+    ISEQUAL         reduce using rule 33 (expresion -> ID .)
+    RPAREN          reduce using rule 33 (expresion -> ID .)
+    RBLOCK          reduce using rule 33 (expresion -> ID .)
+
+
+state 13
+
+    (1) declaracion -> IF LPAREN . expresion GREATER expresion RPAREN LBLOCK expresion SEMI RBLOCK
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 36
+
+state 14
+
+    (18) expresion -> LPAREN expresion . RPAREN
+    (26) expresion -> LPAREN expresion . LESS expresion RPAREN
+    (27) expresion -> LPAREN expresion . GREATER expresion RPAREN
+    (28) expresion -> LPAREN expresion . LESSEQUAL expresion RPAREN
+    (29) expresion -> LPAREN expresion . GREATEREQUAL expresion RPAREN
+    (30) expresion -> LPAREN expresion . EQUAL expresion RPAREN
+    (31) expresion -> LPAREN expresion . ISEQUAL expresion RPAREN
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    RPAREN          shift and go to state 37
+    LESS            shift and go to state 38
+    GREATER         shift and go to state 39
+    LESSEQUAL       shift and go to state 40
+    GREATEREQUAL    shift and go to state 41
+    EQUAL           shift and go to state 42
+    ISEQUAL         shift and go to state 43
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+    addop                          shift and go to state 20
+
+state 15
+
+    (6) declaracion -> expresion SEMI .
+
+    $end            reduce using rule 6 (declaracion -> expresion SEMI .)
+
+
+state 16
+
+    (7) expresion -> expresion PLUS . expresion
+    (13) addop -> PLUS .
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             reduce using rule 13 (addop -> PLUS .)
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+  ! NUM             [ shift and go to state 11 ]
+
+    expresion                      shift and go to state 44
+
+state 17
+
+    (8) expresion -> expresion MINUS . expresion
+    (14) addop -> MINUS .
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             reduce using rule 14 (addop -> MINUS .)
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+  ! NUM             [ shift and go to state 11 ]
+
+    expresion                      shift and go to state 45
+
+state 18
+
+    (9) expresion -> expresion TIMES . expresion
+    (15) addop -> TIMES .
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             reduce using rule 15 (addop -> TIMES .)
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+  ! NUM             [ shift and go to state 11 ]
+
+    expresion                      shift and go to state 46
+
+state 19
+
+    (10) expresion -> expresion DIVIDE . expresion
+    (16) addop -> DIVIDE .
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             reduce using rule 16 (addop -> DIVIDE .)
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+  ! NUM             [ shift and go to state 11 ]
+
+    expresion                      shift and go to state 47
+
+state 20
+
+    (11) expresion -> expresion addop . NUM
+
+    NUM             shift and go to state 48
+
+
+state 21
+
+    (20) expresion -> expresion LESS . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 49
+
+state 22
+
+    (21) expresion -> expresion GREATER . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 50
+
+state 23
+
+    (22) expresion -> expresion LESSEQUAL . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 51
+
+state 24
+
+    (23) expresion -> expresion GREATEREQUAL . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 52
+
+state 25
+
+    (24) expresion -> expresion EQUAL . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 53
+
+state 26
+
+    (25) expresion -> expresion ISEQUAL . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 54
+
+state 27
+
+    (19) expresion -> LBLOCK expresion . RBLOCK
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    RBLOCK          shift and go to state 55
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESS            shift and go to state 21
+    GREATER         shift and go to state 22
+    LESSEQUAL       shift and go to state 23
+    GREATEREQUAL    shift and go to state 24
+    EQUAL           shift and go to state 25
+    ISEQUAL         shift and go to state 26
+
+    addop                          shift and go to state 20
+
+state 28
+
+    (2) declaracion -> ELSE LBLOCK . expresion SEMI RBLOCK
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 56
+
+state 29
+
+    (3) declaracion -> VAR expresion . EQUAL expresion SEMI
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    EQUAL           shift and go to state 57
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESS            shift and go to state 21
+    GREATER         shift and go to state 22
+    LESSEQUAL       shift and go to state 23
+    GREATEREQUAL    shift and go to state 24
+    ISEQUAL         shift and go to state 26
+
+    addop                          shift and go to state 20
+
+state 30
+
+    (17) expresion -> MINUS expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 17 (expresion -> MINUS expresion .)
+    PLUS            reduce using rule 17 (expresion -> MINUS expresion .)
+    MINUS           reduce using rule 17 (expresion -> MINUS expresion .)
+    LESS            reduce using rule 17 (expresion -> MINUS expresion .)
+    GREATER         reduce using rule 17 (expresion -> MINUS expresion .)
+    LESSEQUAL       reduce using rule 17 (expresion -> MINUS expresion .)
+    GREATEREQUAL    reduce using rule 17 (expresion -> MINUS expresion .)
+    EQUAL           reduce using rule 17 (expresion -> MINUS expresion .)
+    ISEQUAL         reduce using rule 17 (expresion -> MINUS expresion .)
+    RPAREN          reduce using rule 17 (expresion -> MINUS expresion .)
+    RBLOCK          reduce using rule 17 (expresion -> MINUS expresion .)
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! TIMES           [ reduce using rule 17 (expresion -> MINUS expresion .) ]
+  ! DIVIDE          [ reduce using rule 17 (expresion -> MINUS expresion .) ]
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 31
+
+    (12) expresion -> NUM addop . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 58
+
+state 32
+
+    (13) addop -> PLUS .
+
+    NUM             reduce using rule 13 (addop -> PLUS .)
+    MINUS           reduce using rule 13 (addop -> PLUS .)
+    LPAREN          reduce using rule 13 (addop -> PLUS .)
+    LBLOCK          reduce using rule 13 (addop -> PLUS .)
+    ID              reduce using rule 13 (addop -> PLUS .)
+
+
+state 33
+
+    (14) addop -> MINUS .
+
+    NUM             reduce using rule 14 (addop -> MINUS .)
+    MINUS           reduce using rule 14 (addop -> MINUS .)
+    LPAREN          reduce using rule 14 (addop -> MINUS .)
+    LBLOCK          reduce using rule 14 (addop -> MINUS .)
+    ID              reduce using rule 14 (addop -> MINUS .)
+
+
+state 34
+
+    (15) addop -> TIMES .
+
+    NUM             reduce using rule 15 (addop -> TIMES .)
+    MINUS           reduce using rule 15 (addop -> TIMES .)
+    LPAREN          reduce using rule 15 (addop -> TIMES .)
+    LBLOCK          reduce using rule 15 (addop -> TIMES .)
+    ID              reduce using rule 15 (addop -> TIMES .)
+
+
+state 35
+
+    (16) addop -> DIVIDE .
+
+    NUM             reduce using rule 16 (addop -> DIVIDE .)
+    MINUS           reduce using rule 16 (addop -> DIVIDE .)
+    LPAREN          reduce using rule 16 (addop -> DIVIDE .)
+    LBLOCK          reduce using rule 16 (addop -> DIVIDE .)
+    ID              reduce using rule 16 (addop -> DIVIDE .)
+
+
+state 36
+
+    (1) declaracion -> IF LPAREN expresion . GREATER expresion RPAREN LBLOCK expresion SEMI RBLOCK
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    GREATER         shift and go to state 59
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESS            shift and go to state 21
+    LESSEQUAL       shift and go to state 23
+    GREATEREQUAL    shift and go to state 24
+    EQUAL           shift and go to state 25
+    ISEQUAL         shift and go to state 26
+
+    addop                          shift and go to state 20
+
+state 37
+
+    (18) expresion -> LPAREN expresion RPAREN .
+
+    SEMI            reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    PLUS            reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    MINUS           reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    TIMES           reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    DIVIDE          reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    LESS            reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    GREATER         reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    LESSEQUAL       reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    GREATEREQUAL    reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    EQUAL           reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    ISEQUAL         reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    RPAREN          reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+    RBLOCK          reduce using rule 18 (expresion -> LPAREN expresion RPAREN .)
+
+
+state 38
+
+    (26) expresion -> LPAREN expresion LESS . expresion RPAREN
+    (20) expresion -> expresion LESS . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 60
+
+state 39
+
+    (27) expresion -> LPAREN expresion GREATER . expresion RPAREN
+    (21) expresion -> expresion GREATER . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 61
+
+state 40
+
+    (28) expresion -> LPAREN expresion LESSEQUAL . expresion RPAREN
+    (22) expresion -> expresion LESSEQUAL . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 62
+
+state 41
+
+    (29) expresion -> LPAREN expresion GREATEREQUAL . expresion RPAREN
+    (23) expresion -> expresion GREATEREQUAL . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 63
+
+state 42
+
+    (30) expresion -> LPAREN expresion EQUAL . expresion RPAREN
+    (24) expresion -> expresion EQUAL . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 64
+
+state 43
+
+    (31) expresion -> LPAREN expresion ISEQUAL . expresion RPAREN
+    (25) expresion -> expresion ISEQUAL . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 65
+
+state 44
+
+    (7) expresion -> expresion PLUS expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    PLUS            reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    MINUS           reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    LESS            reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    GREATER         reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    LESSEQUAL       reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    GREATEREQUAL    reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    EQUAL           reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    ISEQUAL         reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    RPAREN          reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    RBLOCK          reduce using rule 7 (expresion -> expresion PLUS expresion .)
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! TIMES           [ reduce using rule 7 (expresion -> expresion PLUS expresion .) ]
+  ! DIVIDE          [ reduce using rule 7 (expresion -> expresion PLUS expresion .) ]
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 45
+
+    (8) expresion -> expresion MINUS expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    PLUS            reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    MINUS           reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    LESS            reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    GREATER         reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    LESSEQUAL       reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    GREATEREQUAL    reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    EQUAL           reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    ISEQUAL         reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    RPAREN          reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    RBLOCK          reduce using rule 8 (expresion -> expresion MINUS expresion .)
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! TIMES           [ reduce using rule 8 (expresion -> expresion MINUS expresion .) ]
+  ! DIVIDE          [ reduce using rule 8 (expresion -> expresion MINUS expresion .) ]
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 46
+
+    (9) expresion -> expresion TIMES expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    PLUS            reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    MINUS           reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    TIMES           reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    DIVIDE          reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    LESS            reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    GREATER         reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    LESSEQUAL       reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    GREATEREQUAL    reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    EQUAL           reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    ISEQUAL         reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    RPAREN          reduce using rule 9 (expresion -> expresion TIMES expresion .)
+    RBLOCK          reduce using rule 9 (expresion -> expresion TIMES expresion .)
+
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! TIMES           [ shift and go to state 18 ]
+  ! DIVIDE          [ shift and go to state 19 ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 47
+
+    (10) expresion -> expresion DIVIDE expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    PLUS            reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    MINUS           reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    TIMES           reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    DIVIDE          reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    LESS            reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    GREATER         reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    LESSEQUAL       reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    GREATEREQUAL    reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    EQUAL           reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    ISEQUAL         reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    RPAREN          reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+    RBLOCK          reduce using rule 10 (expresion -> expresion DIVIDE expresion .)
+
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! TIMES           [ shift and go to state 18 ]
+  ! DIVIDE          [ shift and go to state 19 ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 48
+
+    (11) expresion -> expresion addop NUM .
+
+    SEMI            reduce using rule 11 (expresion -> expresion addop NUM .)
+    PLUS            reduce using rule 11 (expresion -> expresion addop NUM .)
+    MINUS           reduce using rule 11 (expresion -> expresion addop NUM .)
+    TIMES           reduce using rule 11 (expresion -> expresion addop NUM .)
+    DIVIDE          reduce using rule 11 (expresion -> expresion addop NUM .)
+    LESS            reduce using rule 11 (expresion -> expresion addop NUM .)
+    GREATER         reduce using rule 11 (expresion -> expresion addop NUM .)
+    LESSEQUAL       reduce using rule 11 (expresion -> expresion addop NUM .)
+    GREATEREQUAL    reduce using rule 11 (expresion -> expresion addop NUM .)
+    EQUAL           reduce using rule 11 (expresion -> expresion addop NUM .)
+    ISEQUAL         reduce using rule 11 (expresion -> expresion addop NUM .)
+    RPAREN          reduce using rule 11 (expresion -> expresion addop NUM .)
+    RBLOCK          reduce using rule 11 (expresion -> expresion addop NUM .)
+
+
+state 49
+
+    (20) expresion -> expresion LESS expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 20 (expresion -> expresion LESS expresion .)
+    LESS            reduce using rule 20 (expresion -> expresion LESS expresion .)
+    GREATER         reduce using rule 20 (expresion -> expresion LESS expresion .)
+    LESSEQUAL       reduce using rule 20 (expresion -> expresion LESS expresion .)
+    GREATEREQUAL    reduce using rule 20 (expresion -> expresion LESS expresion .)
+    EQUAL           reduce using rule 20 (expresion -> expresion LESS expresion .)
+    ISEQUAL         reduce using rule 20 (expresion -> expresion LESS expresion .)
+    RBLOCK          reduce using rule 20 (expresion -> expresion LESS expresion .)
+    RPAREN          reduce using rule 20 (expresion -> expresion LESS expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! PLUS            [ reduce using rule 20 (expresion -> expresion LESS expresion .) ]
+  ! MINUS           [ reduce using rule 20 (expresion -> expresion LESS expresion .) ]
+  ! TIMES           [ reduce using rule 20 (expresion -> expresion LESS expresion .) ]
+  ! DIVIDE          [ reduce using rule 20 (expresion -> expresion LESS expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 50
+
+    (21) expresion -> expresion GREATER expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    LESS            reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    GREATER         reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    LESSEQUAL       reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    GREATEREQUAL    reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    EQUAL           reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    ISEQUAL         reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    RBLOCK          reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    RPAREN          reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! PLUS            [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! MINUS           [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! TIMES           [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! DIVIDE          [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 51
+
+    (22) expresion -> expresion LESSEQUAL expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    LESS            reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    GREATER         reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    LESSEQUAL       reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    GREATEREQUAL    reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    EQUAL           reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    ISEQUAL         reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    RBLOCK          reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    RPAREN          reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! PLUS            [ reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .) ]
+  ! MINUS           [ reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .) ]
+  ! TIMES           [ reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .) ]
+  ! DIVIDE          [ reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 52
+
+    (23) expresion -> expresion GREATEREQUAL expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    LESS            reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    GREATER         reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    LESSEQUAL       reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    GREATEREQUAL    reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    EQUAL           reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    ISEQUAL         reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    RBLOCK          reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    RPAREN          reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! PLUS            [ reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .) ]
+  ! MINUS           [ reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .) ]
+  ! TIMES           [ reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .) ]
+  ! DIVIDE          [ reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 53
+
+    (24) expresion -> expresion EQUAL expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 24 (expresion -> expresion EQUAL expresion .)
+    EQUAL           reduce using rule 24 (expresion -> expresion EQUAL expresion .)
+    RBLOCK          reduce using rule 24 (expresion -> expresion EQUAL expresion .)
+    RPAREN          reduce using rule 24 (expresion -> expresion EQUAL expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESS            shift and go to state 21
+    GREATER         shift and go to state 22
+    LESSEQUAL       shift and go to state 23
+    GREATEREQUAL    shift and go to state 24
+    ISEQUAL         shift and go to state 26
+
+  ! PLUS            [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! MINUS           [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! TIMES           [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! DIVIDE          [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! LESS            [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! GREATER         [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! LESSEQUAL       [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! GREATEREQUAL    [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! ISEQUAL         [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! EQUAL           [ shift and go to state 25 ]
+
+    addop                          shift and go to state 20
+
+state 54
+
+    (25) expresion -> expresion ISEQUAL expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    LESS            reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    GREATER         reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    LESSEQUAL       reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    GREATEREQUAL    reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    EQUAL           reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    ISEQUAL         reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    RBLOCK          reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    RPAREN          reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! PLUS            [ reduce using rule 25 (expresion -> expresion ISEQUAL expresion .) ]
+  ! MINUS           [ reduce using rule 25 (expresion -> expresion ISEQUAL expresion .) ]
+  ! TIMES           [ reduce using rule 25 (expresion -> expresion ISEQUAL expresion .) ]
+  ! DIVIDE          [ reduce using rule 25 (expresion -> expresion ISEQUAL expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 55
+
+    (19) expresion -> LBLOCK expresion RBLOCK .
+
+    SEMI            reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    PLUS            reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    MINUS           reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    TIMES           reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    DIVIDE          reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    LESS            reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    GREATER         reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    LESSEQUAL       reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    GREATEREQUAL    reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    EQUAL           reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    ISEQUAL         reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    RPAREN          reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+    RBLOCK          reduce using rule 19 (expresion -> LBLOCK expresion RBLOCK .)
+
+
+state 56
+
+    (2) declaracion -> ELSE LBLOCK expresion . SEMI RBLOCK
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            shift and go to state 66
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESS            shift and go to state 21
+    GREATER         shift and go to state 22
+    LESSEQUAL       shift and go to state 23
+    GREATEREQUAL    shift and go to state 24
+    EQUAL           shift and go to state 25
+    ISEQUAL         shift and go to state 26
+
+    addop                          shift and go to state 20
+
+state 57
+
+    (3) declaracion -> VAR expresion EQUAL . expresion SEMI
+    (24) expresion -> expresion EQUAL . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 67
+
+state 58
+
+    (12) expresion -> NUM addop expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for LESSEQUAL resolved as shift
+  ! shift/reduce conflict for GREATEREQUAL resolved as shift
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for ISEQUAL resolved as shift
+    SEMI            reduce using rule 12 (expresion -> NUM addop expresion .)
+    RPAREN          reduce using rule 12 (expresion -> NUM addop expresion .)
+    RBLOCK          reduce using rule 12 (expresion -> NUM addop expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESS            shift and go to state 21
+    GREATER         shift and go to state 22
+    LESSEQUAL       shift and go to state 23
+    GREATEREQUAL    shift and go to state 24
+    EQUAL           shift and go to state 25
+    ISEQUAL         shift and go to state 26
+
+  ! PLUS            [ reduce using rule 12 (expresion -> NUM addop expresion .) ]
+  ! MINUS           [ reduce using rule 12 (expresion -> NUM addop expresion .) ]
+  ! TIMES           [ reduce using rule 12 (expresion -> NUM addop expresion .) ]
+  ! DIVIDE          [ reduce using rule 12 (expresion -> NUM addop expresion .) ]
+  ! LESS            [ reduce using rule 12 (expresion -> NUM addop expresion .) ]
+  ! GREATER         [ reduce using rule 12 (expresion -> NUM addop expresion .) ]
+  ! LESSEQUAL       [ reduce using rule 12 (expresion -> NUM addop expresion .) ]
+  ! GREATEREQUAL    [ reduce using rule 12 (expresion -> NUM addop expresion .) ]
+  ! EQUAL           [ reduce using rule 12 (expresion -> NUM addop expresion .) ]
+  ! ISEQUAL         [ reduce using rule 12 (expresion -> NUM addop expresion .) ]
+
+    addop                          shift and go to state 20
+
+state 59
+
+    (1) declaracion -> IF LPAREN expresion GREATER . expresion RPAREN LBLOCK expresion SEMI RBLOCK
+    (21) expresion -> expresion GREATER . expresion
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 68
+
+state 60
+
+    (26) expresion -> LPAREN expresion LESS expresion . RPAREN
+    (20) expresion -> expresion LESS expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    RPAREN          shift and go to state 69
+    LESS            reduce using rule 20 (expresion -> expresion LESS expresion .)
+    GREATER         reduce using rule 20 (expresion -> expresion LESS expresion .)
+    LESSEQUAL       reduce using rule 20 (expresion -> expresion LESS expresion .)
+    GREATEREQUAL    reduce using rule 20 (expresion -> expresion LESS expresion .)
+    EQUAL           reduce using rule 20 (expresion -> expresion LESS expresion .)
+    ISEQUAL         reduce using rule 20 (expresion -> expresion LESS expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! RPAREN          [ reduce using rule 20 (expresion -> expresion LESS expresion .) ]
+  ! PLUS            [ reduce using rule 20 (expresion -> expresion LESS expresion .) ]
+  ! MINUS           [ reduce using rule 20 (expresion -> expresion LESS expresion .) ]
+  ! TIMES           [ reduce using rule 20 (expresion -> expresion LESS expresion .) ]
+  ! DIVIDE          [ reduce using rule 20 (expresion -> expresion LESS expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 61
+
+    (27) expresion -> LPAREN expresion GREATER expresion . RPAREN
+    (21) expresion -> expresion GREATER expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    RPAREN          shift and go to state 70
+    LESS            reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    GREATER         reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    LESSEQUAL       reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    GREATEREQUAL    reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    EQUAL           reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    ISEQUAL         reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! RPAREN          [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! PLUS            [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! MINUS           [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! TIMES           [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! DIVIDE          [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 62
+
+    (28) expresion -> LPAREN expresion LESSEQUAL expresion . RPAREN
+    (22) expresion -> expresion LESSEQUAL expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    RPAREN          shift and go to state 71
+    LESS            reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    GREATER         reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    LESSEQUAL       reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    GREATEREQUAL    reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    EQUAL           reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    ISEQUAL         reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! RPAREN          [ reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .) ]
+  ! PLUS            [ reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .) ]
+  ! MINUS           [ reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .) ]
+  ! TIMES           [ reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .) ]
+  ! DIVIDE          [ reduce using rule 22 (expresion -> expresion LESSEQUAL expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 63
+
+    (29) expresion -> LPAREN expresion GREATEREQUAL expresion . RPAREN
+    (23) expresion -> expresion GREATEREQUAL expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    RPAREN          shift and go to state 72
+    LESS            reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    GREATER         reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    LESSEQUAL       reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    GREATEREQUAL    reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    EQUAL           reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    ISEQUAL         reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! RPAREN          [ reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .) ]
+  ! PLUS            [ reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .) ]
+  ! MINUS           [ reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .) ]
+  ! TIMES           [ reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .) ]
+  ! DIVIDE          [ reduce using rule 23 (expresion -> expresion GREATEREQUAL expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 64
+
+    (30) expresion -> LPAREN expresion EQUAL expresion . RPAREN
+    (24) expresion -> expresion EQUAL expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    RPAREN          shift and go to state 73
+    EQUAL           reduce using rule 24 (expresion -> expresion EQUAL expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESS            shift and go to state 21
+    GREATER         shift and go to state 22
+    LESSEQUAL       shift and go to state 23
+    GREATEREQUAL    shift and go to state 24
+    ISEQUAL         shift and go to state 26
+
+  ! RPAREN          [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! LESS            [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! GREATER         [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! LESSEQUAL       [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! GREATEREQUAL    [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! ISEQUAL         [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! PLUS            [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! MINUS           [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! TIMES           [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! DIVIDE          [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! EQUAL           [ shift and go to state 25 ]
+
+    addop                          shift and go to state 20
+
+state 65
+
+    (31) expresion -> LPAREN expresion ISEQUAL expresion . RPAREN
+    (25) expresion -> expresion ISEQUAL expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    RPAREN          shift and go to state 74
+    LESS            reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    GREATER         reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    LESSEQUAL       reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    GREATEREQUAL    reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    EQUAL           reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    ISEQUAL         reduce using rule 25 (expresion -> expresion ISEQUAL expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! RPAREN          [ reduce using rule 25 (expresion -> expresion ISEQUAL expresion .) ]
+  ! PLUS            [ reduce using rule 25 (expresion -> expresion ISEQUAL expresion .) ]
+  ! MINUS           [ reduce using rule 25 (expresion -> expresion ISEQUAL expresion .) ]
+  ! TIMES           [ reduce using rule 25 (expresion -> expresion ISEQUAL expresion .) ]
+  ! DIVIDE          [ reduce using rule 25 (expresion -> expresion ISEQUAL expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 66
+
+    (2) declaracion -> ELSE LBLOCK expresion SEMI . RBLOCK
+
+    RBLOCK          shift and go to state 75
+
+
+state 67
+
+    (3) declaracion -> VAR expresion EQUAL expresion . SEMI
+    (24) expresion -> expresion EQUAL expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            shift and go to state 76
+    EQUAL           reduce using rule 24 (expresion -> expresion EQUAL expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESS            shift and go to state 21
+    GREATER         shift and go to state 22
+    LESSEQUAL       shift and go to state 23
+    GREATEREQUAL    shift and go to state 24
+    ISEQUAL         shift and go to state 26
+
+  ! PLUS            [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! MINUS           [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! TIMES           [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! DIVIDE          [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! LESS            [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! GREATER         [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! LESSEQUAL       [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! GREATEREQUAL    [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! ISEQUAL         [ reduce using rule 24 (expresion -> expresion EQUAL expresion .) ]
+  ! EQUAL           [ shift and go to state 25 ]
+
+    addop                          shift and go to state 20
+
+state 68
+
+    (1) declaracion -> IF LPAREN expresion GREATER expresion . RPAREN LBLOCK expresion SEMI RBLOCK
+    (21) expresion -> expresion GREATER expresion .
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    RPAREN          shift and go to state 77
+    GREATER         reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    LESS            reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    LESSEQUAL       reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    GREATEREQUAL    reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    EQUAL           reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    ISEQUAL         reduce using rule 21 (expresion -> expresion GREATER expresion .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+
+  ! PLUS            [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! MINUS           [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! TIMES           [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! DIVIDE          [ reduce using rule 21 (expresion -> expresion GREATER expresion .) ]
+  ! LESS            [ shift and go to state 21 ]
+  ! GREATER         [ shift and go to state 22 ]
+  ! LESSEQUAL       [ shift and go to state 23 ]
+  ! GREATEREQUAL    [ shift and go to state 24 ]
+  ! EQUAL           [ shift and go to state 25 ]
+  ! ISEQUAL         [ shift and go to state 26 ]
+
+    addop                          shift and go to state 20
+
+state 69
+
+    (26) expresion -> LPAREN expresion LESS expresion RPAREN .
+
+    SEMI            reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    PLUS            reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    MINUS           reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    TIMES           reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    DIVIDE          reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    LESS            reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    GREATER         reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    LESSEQUAL       reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    GREATEREQUAL    reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    EQUAL           reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    ISEQUAL         reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    RPAREN          reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+    RBLOCK          reduce using rule 26 (expresion -> LPAREN expresion LESS expresion RPAREN .)
+
+
+state 70
+
+    (27) expresion -> LPAREN expresion GREATER expresion RPAREN .
+
+    SEMI            reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    PLUS            reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    MINUS           reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    TIMES           reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    DIVIDE          reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    LESS            reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    GREATER         reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    LESSEQUAL       reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    GREATEREQUAL    reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    EQUAL           reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    ISEQUAL         reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    RPAREN          reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+    RBLOCK          reduce using rule 27 (expresion -> LPAREN expresion GREATER expresion RPAREN .)
+
+
+state 71
+
+    (28) expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .
+
+    SEMI            reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    PLUS            reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    MINUS           reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    TIMES           reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    DIVIDE          reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    LESS            reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    GREATER         reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    LESSEQUAL       reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    GREATEREQUAL    reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    EQUAL           reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    ISEQUAL         reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    RPAREN          reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+    RBLOCK          reduce using rule 28 (expresion -> LPAREN expresion LESSEQUAL expresion RPAREN .)
+
+
+state 72
+
+    (29) expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .
+
+    SEMI            reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    PLUS            reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    MINUS           reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    TIMES           reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    DIVIDE          reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    LESS            reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    GREATER         reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    LESSEQUAL       reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    GREATEREQUAL    reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    EQUAL           reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    ISEQUAL         reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    RPAREN          reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+    RBLOCK          reduce using rule 29 (expresion -> LPAREN expresion GREATEREQUAL expresion RPAREN .)
+
+
+state 73
+
+    (30) expresion -> LPAREN expresion EQUAL expresion RPAREN .
+
+    SEMI            reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    PLUS            reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    MINUS           reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    TIMES           reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    DIVIDE          reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    LESS            reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    GREATER         reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    LESSEQUAL       reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    GREATEREQUAL    reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    EQUAL           reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    ISEQUAL         reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    RPAREN          reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+    RBLOCK          reduce using rule 30 (expresion -> LPAREN expresion EQUAL expresion RPAREN .)
+
+
+state 74
+
+    (31) expresion -> LPAREN expresion ISEQUAL expresion RPAREN .
+
+    SEMI            reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    PLUS            reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    MINUS           reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    TIMES           reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    DIVIDE          reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    LESS            reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    GREATER         reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    LESSEQUAL       reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    GREATEREQUAL    reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    EQUAL           reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    ISEQUAL         reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    RPAREN          reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+    RBLOCK          reduce using rule 31 (expresion -> LPAREN expresion ISEQUAL expresion RPAREN .)
+
+
+state 75
+
+    (2) declaracion -> ELSE LBLOCK expresion SEMI RBLOCK .
+
+    $end            reduce using rule 2 (declaracion -> ELSE LBLOCK expresion SEMI RBLOCK .)
+
+
+state 76
+
+    (3) declaracion -> VAR expresion EQUAL expresion SEMI .
+
+    $end            reduce using rule 3 (declaracion -> VAR expresion EQUAL expresion SEMI .)
+
+
+state 77
+
+    (1) declaracion -> IF LPAREN expresion GREATER expresion RPAREN . LBLOCK expresion SEMI RBLOCK
+
+    LBLOCK          shift and go to state 78
+
+
+state 78
+
+    (1) declaracion -> IF LPAREN expresion GREATER expresion RPAREN LBLOCK . expresion SEMI RBLOCK
+    (7) expresion -> . expresion PLUS expresion
+    (8) expresion -> . expresion MINUS expresion
+    (9) expresion -> . expresion TIMES expresion
+    (10) expresion -> . expresion DIVIDE expresion
+    (11) expresion -> . expresion addop NUM
+    (12) expresion -> . NUM addop expresion
+    (17) expresion -> . MINUS expresion
+    (18) expresion -> . LPAREN expresion RPAREN
+    (19) expresion -> . LBLOCK expresion RBLOCK
+    (20) expresion -> . expresion LESS expresion
+    (21) expresion -> . expresion GREATER expresion
+    (22) expresion -> . expresion LESSEQUAL expresion
+    (23) expresion -> . expresion GREATEREQUAL expresion
+    (24) expresion -> . expresion EQUAL expresion
+    (25) expresion -> . expresion ISEQUAL expresion
+    (26) expresion -> . LPAREN expresion LESS expresion RPAREN
+    (27) expresion -> . LPAREN expresion GREATER expresion RPAREN
+    (28) expresion -> . LPAREN expresion LESSEQUAL expresion RPAREN
+    (29) expresion -> . LPAREN expresion GREATEREQUAL expresion RPAREN
+    (30) expresion -> . LPAREN expresion EQUAL expresion RPAREN
+    (31) expresion -> . LPAREN expresion ISEQUAL expresion RPAREN
+    (32) expresion -> . NUM
+    (33) expresion -> . ID
+
+    NUM             shift and go to state 11
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 3
+    LBLOCK          shift and go to state 5
+    ID              shift and go to state 12
+
+    expresion                      shift and go to state 79
+
+state 79
+
+    (1) declaracion -> IF LPAREN expresion GREATER expresion RPAREN LBLOCK expresion . SEMI RBLOCK
+    (7) expresion -> expresion . PLUS expresion
+    (8) expresion -> expresion . MINUS expresion
+    (9) expresion -> expresion . TIMES expresion
+    (10) expresion -> expresion . DIVIDE expresion
+    (11) expresion -> expresion . addop NUM
+    (20) expresion -> expresion . LESS expresion
+    (21) expresion -> expresion . GREATER expresion
+    (22) expresion -> expresion . LESSEQUAL expresion
+    (23) expresion -> expresion . GREATEREQUAL expresion
+    (24) expresion -> expresion . EQUAL expresion
+    (25) expresion -> expresion . ISEQUAL expresion
+    (13) addop -> . PLUS
+    (14) addop -> . MINUS
+    (15) addop -> . TIMES
+    (16) addop -> . DIVIDE
+
+    SEMI            shift and go to state 80
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    LESS            shift and go to state 21
+    GREATER         shift and go to state 22
+    LESSEQUAL       shift and go to state 23
+    GREATEREQUAL    shift and go to state 24
+    EQUAL           shift and go to state 25
+    ISEQUAL         shift and go to state 26
+
+    addop                          shift and go to state 20
+
+state 80
+
+    (1) declaracion -> IF LPAREN expresion GREATER expresion RPAREN LBLOCK expresion SEMI . RBLOCK
+
+    RBLOCK          shift and go to state 81
+
+
+state 81
+
+    (1) declaracion -> IF LPAREN expresion GREATER expresion RPAREN LBLOCK expresion SEMI RBLOCK .
+
+    $end            reduce using rule 1 (declaracion -> IF LPAREN expresion GREATER expresion RPAREN LBLOCK expresion SEMI RBLOCK .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 11 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 11 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 11 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 11 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 58 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 58 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 58 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 58 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 58 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 58 resolved as shift
+WARNING: shift/reduce conflict for LESSEQUAL in state 58 resolved as shift
+WARNING: shift/reduce conflict for GREATEREQUAL in state 58 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 58 resolved as shift
+WARNING: shift/reduce conflict for ISEQUAL in state 58 resolved as shift
